@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://calculatorv2" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://calculatorv2" xmlns:intf="http://calculatorv2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://calculatorv2" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="main">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="args" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mainResponse">
+    <complexType/>
+   </element>
+   <element name="mode">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+      <element name="param2" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modeResponse">
+    <complexType>
+     <sequence>
+      <element name="modeReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUpper">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+      <element name="degree" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUpperResponse">
+    <complexType>
+     <sequence>
+      <element name="getUpperReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addition">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+      <element name="param2" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="additionResponse">
+    <complexType>
+     <sequence>
+      <element name="additionReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="division">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+      <element name="param2" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="divisionResponse">
+    <complexType>
+     <sequence>
+      <element name="divisionReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="fakto">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="faktoResponse">
+    <complexType>
+     <sequence>
+      <element name="faktoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="multiplication">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+      <element name="param2" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="multiplicationResponse">
+    <complexType>
+     <sequence>
+      <element name="multiplicationReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subtraction">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+      <element name="param2" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subtractionResponse">
+    <complexType>
+     <sequence>
+      <element name="subtractionReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="modeRequest">
+
+      <wsdl:part element="impl:mode" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="divisionRequest">
+
+      <wsdl:part element="impl:division" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainRequest">
+
+      <wsdl:part element="impl:main" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainResponse">
+
+      <wsdl:part element="impl:mainResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="additionRequest">
+
+      <wsdl:part element="impl:addition" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="divisionResponse">
+
+      <wsdl:part element="impl:divisionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="faktoResponse">
+
+      <wsdl:part element="impl:faktoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="multiplicationResponse">
+
+      <wsdl:part element="impl:multiplicationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subtractionResponse">
+
+      <wsdl:part element="impl:subtractionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="modeResponse">
+
+      <wsdl:part element="impl:modeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="faktoRequest">
+
+      <wsdl:part element="impl:fakto" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subtractionRequest">
+
+      <wsdl:part element="impl:subtraction" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="additionResponse">
+
+      <wsdl:part element="impl:additionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="multiplicationRequest">
+
+      <wsdl:part element="impl:multiplication" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUpperResponse">
+
+      <wsdl:part element="impl:getUpperResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUpperRequest">
+
+      <wsdl:part element="impl:getUpper" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Arithmetic">
+
+      <wsdl:operation name="main">
+
+         <wsdl:input message="impl:mainRequest" name="mainRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:mainResponse" name="mainResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="mode">
+
+         <wsdl:input message="impl:modeRequest" name="modeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:modeResponse" name="modeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUpper">
+
+         <wsdl:input message="impl:getUpperRequest" name="getUpperRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUpperResponse" name="getUpperResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addition">
+
+         <wsdl:input message="impl:additionRequest" name="additionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:additionResponse" name="additionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="division">
+
+         <wsdl:input message="impl:divisionRequest" name="divisionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:divisionResponse" name="divisionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="fakto">
+
+         <wsdl:input message="impl:faktoRequest" name="faktoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:faktoResponse" name="faktoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="multiplication">
+
+         <wsdl:input message="impl:multiplicationRequest" name="multiplicationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:multiplicationResponse" name="multiplicationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subtraction">
+
+         <wsdl:input message="impl:subtractionRequest" name="subtractionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:subtractionResponse" name="subtractionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ArithmeticSoapBinding" type="impl:Arithmetic">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="main">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mainRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mainResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="mode">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUpper">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUpperRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUpperResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addition">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="additionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="additionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="division">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="divisionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="divisionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="fakto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="faktoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="faktoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="multiplication">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="multiplicationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="multiplicationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subtraction">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="subtractionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="subtractionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ArithmeticService">
+
+      <wsdl:port binding="impl:ArithmeticSoapBinding" name="Arithmetic">
+
+         <wsdlsoap:address location="http://localhost:8080/calculatorv2/services/Arithmetic"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

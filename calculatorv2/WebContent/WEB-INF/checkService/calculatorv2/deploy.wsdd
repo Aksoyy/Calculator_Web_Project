@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from checkService WSDL service -->
+
+  <service name="check" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://calculatorv2"/>
+      <parameter name="wsdlServiceElement" value="checkService"/>
+      <parameter name="schemaQualified" value="http://calculatorv2"/>
+      <parameter name="wsdlServicePort" value="check"/>
+      <parameter name="className" value="calculatorv2.check"/>
+      <parameter name="wsdlPortType" value="check"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://calculatorv2" name="checkInteger" qname="operNS:checkInteger" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param2" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://calculatorv2" name="checkDouble" qname="operNS:checkDouble" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param2" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://calculatorv2" name="checkUpper" qname="operNS:checkUpper" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param2" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://calculatorv2" name="checkFacto" qname="operNS:checkFacto" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="checkInteger checkUpper checkFacto checkDouble"/>
+
+  </service>
+</deployment>

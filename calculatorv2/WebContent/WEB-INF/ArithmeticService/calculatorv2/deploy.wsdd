@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ArithmeticService WSDL service -->
+
+  <service name="Arithmetic" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://calculatorv2"/>
+      <parameter name="wsdlServiceElement" value="ArithmeticService"/>
+      <parameter name="schemaQualified" value="http://calculatorv2"/>
+      <parameter name="wsdlServicePort" value="Arithmetic"/>
+      <parameter name="className" value="calculatorv2.Arithmetic"/>
+      <parameter name="wsdlPortType" value="Arithmetic"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://calculatorv2" name="main" qname="operNS:main" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:args" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://calculatorv2" xmlns:retNS="http://calculatorv2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="mode" qname="operNS:mode" returnQName="retNS:modeReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param2" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://calculatorv2" xmlns:retNS="http://calculatorv2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getUpper" qname="operNS:getUpper" returnQName="retNS:getUpperReturn" returnType="rtns:double" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:degree" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://calculatorv2" xmlns:retNS="http://calculatorv2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addition" qname="operNS:addition" returnQName="retNS:additionReturn" returnType="rtns:double" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param2" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://calculatorv2" xmlns:retNS="http://calculatorv2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="division" qname="operNS:division" returnQName="retNS:divisionReturn" returnType="rtns:double" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param2" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://calculatorv2" xmlns:retNS="http://calculatorv2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="fakto" qname="operNS:fakto" returnQName="retNS:faktoReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://calculatorv2" xmlns:retNS="http://calculatorv2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="multiplication" qname="operNS:multiplication" returnQName="retNS:multiplicationReturn" returnType="rtns:double" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param2" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://calculatorv2" xmlns:retNS="http://calculatorv2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="subtraction" qname="operNS:subtraction" returnQName="retNS:subtractionReturn" returnType="rtns:double" soapAction="">
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param1" type="tns:string"/>
+        <parameter xmlns:pns="http://calculatorv2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param2" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="mode division fakto subtraction main multiplication getUpper addition"/>
+
+  </service>
+</deployment>

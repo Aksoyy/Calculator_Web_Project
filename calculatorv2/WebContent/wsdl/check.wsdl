@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://calculatorv2" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://calculatorv2" xmlns:intf="http://calculatorv2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://calculatorv2" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="checkInteger">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+      <element name="param2" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkIntegerResponse">
+    <complexType/>
+   </element>
+   <element name="checkDouble">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+      <element name="param2" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkDoubleResponse">
+    <complexType/>
+   </element>
+   <element name="checkUpper">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+      <element name="param2" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkUpperResponse">
+    <complexType/>
+   </element>
+   <element name="checkFacto">
+    <complexType>
+     <sequence>
+      <element name="param1" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkFactoResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="checkDoubleRequest">
+
+      <wsdl:part element="impl:checkDouble" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkFactoRequest">
+
+      <wsdl:part element="impl:checkFacto" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkIntegerResponse">
+
+      <wsdl:part element="impl:checkIntegerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkUpperResponse">
+
+      <wsdl:part element="impl:checkUpperResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkDoubleResponse">
+
+      <wsdl:part element="impl:checkDoubleResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkIntegerRequest">
+
+      <wsdl:part element="impl:checkInteger" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkUpperRequest">
+
+      <wsdl:part element="impl:checkUpper" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkFactoResponse">
+
+      <wsdl:part element="impl:checkFactoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="check">
+
+      <wsdl:operation name="checkInteger">
+
+         <wsdl:input message="impl:checkIntegerRequest" name="checkIntegerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkIntegerResponse" name="checkIntegerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkDouble">
+
+         <wsdl:input message="impl:checkDoubleRequest" name="checkDoubleRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkDoubleResponse" name="checkDoubleResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkUpper">
+
+         <wsdl:input message="impl:checkUpperRequest" name="checkUpperRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkUpperResponse" name="checkUpperResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkFacto">
+
+         <wsdl:input message="impl:checkFactoRequest" name="checkFactoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkFactoResponse" name="checkFactoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="checkSoapBinding" type="impl:check">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="checkInteger">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkIntegerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkIntegerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkDouble">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkDoubleRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkDoubleResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkUpper">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkUpperRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkUpperResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkFacto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkFactoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkFactoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="checkService">
+
+      <wsdl:port binding="impl:checkSoapBinding" name="check">
+
+         <wsdlsoap:address location="http://localhost:8080/calculatorv2/services/check"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
