@@ -1,0 +1,48 @@
+const countsUrl = 'http://localhost:3000/counts.json'; // Değiştirilecek
+let counts;
+
+function updateCounter() {
+    document.getElementById("daily-counter").textContent = counts.daily;
+    document.getElementById("monthly-counter").textContent = counts.monthly;
+    document.getElementById("yearly-counter").textContent = counts.yearly;
+}
+
+function incrementCounter(type) {
+    counts[type]++;
+    updateCounter();
+    saveCounts();
+}
+
+function saveCounts() {
+    fetch(countsUrl, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(counts)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+fetch(countsUrl)
+    .then(response => response.json())
+    .then(data => {
+        counts = data;
+        updateCounter();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+window.addEventListener('load', () => {
+    incrementCounter('daily');
+    incrementCounter('monthly');
+    incrementCounter('yearly');
+});
