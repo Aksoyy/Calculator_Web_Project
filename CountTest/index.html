@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Visitor Counter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziyaretçi Sayacı</title>
+    <script>
+        // Dosyadan ziyaretçi sayısını okuyan fonksiyon
+        function okuVeGuncelle() {
+            // XMLHttpRequest nesnesini oluştur
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Dosya içeriğini al
+                    var ziyaretciSayisi = parseInt(xhr.responseText);
+                    // Ziyaretçi sayısını bir artır
+                    ziyaretciSayisi++;
+                    // Dosyaya ziyaretçi sayısını yaz
+                    yaz(ziyaretciSayisi);
+                    // Ziyaretçi sayısını ekrana yazdır
+                    document.getElementById('ziyaretci-sayisi').innerText = ziyaretciSayisi;
+                }
+            };
+            xhr.open("GET", "ziyaretci_sayisi.txt", true);
+            xhr.send();
+        }
+
+        // Ziyaretçi sayısını dosyaya yazan fonksiyon
+        function yaz(ziyaretciSayisi) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "ziyaretci_sayisi.txt", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(ziyaretciSayisi);
+        }
+
+        // Sayfa yüklendiğinde ziyaretçi sayısını kontrol et
+        window.onload = function() {
+            okuVeGuncelle();
+        };
+    </script>
 </head>
 <body>
-<div>
-    <h1>Visitor Counter</h1>
-    <p>
-        Daily: <span id="daily-counter">0</span><br>
-        Monthly: <span id="monthly-counter">0</span><br>
-        Yearly: <span id="yearly-counter">0</span>
-    </p>
-    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-<div class="elfsight-app-3deb64dc-67a6-4c0a-9d41-3e3c6a672bdf" data-elfsight-app-lazy></div>
-</div>
-<script src="counter.js"></script>
+    <h1>Hoş Geldiniz!</h1>
+    <p>Bu sayfayı <span id="ziyaretci-sayisi">0</span> kişi ziyaret etti.</p>
 </body>
 </html>
