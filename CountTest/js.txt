@@ -46,3 +46,29 @@ window.addEventListener('load', () => {
     incrementCounter('monthly');
     incrementCounter('yearly');
 });
+
+
+
+
+const fs = require('fs');
+
+fs.readFile('counts.json', 'utf8', (err, data) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+
+    const counts = JSON.parse(data);
+    counts.daily++;
+    counts.monthly++;
+    counts.yearly++;
+
+    fs.writeFile('counts.json', JSON.stringify(counts), (err) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        console.log('Counts updated successfully.');
+    });
+});
